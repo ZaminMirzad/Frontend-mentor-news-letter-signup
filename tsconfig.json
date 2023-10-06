@@ -5,5 +5,5 @@
     "moduleResolution": "node",
     "target": "ES2022"
   },
-  "include": ["src/components", "src/custom.d.ts"]
+  "include": ["src/components", "custom.d.ts"]
 }
