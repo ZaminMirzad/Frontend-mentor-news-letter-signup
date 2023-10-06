@@ -1,25 +1,30 @@
-import './news-letter-signup.scss';
+import "./news-letter-signup.scss";
 
-import illustration from '../assets/images/illustration-sign-up-desktop.svg';
-import chech from '../assets/images/icon-list.svg';
-import { useForm, SubmitHandler, Controller } from 'react-hook-form';
-import * as z from 'zod';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { SetStateAction, useState } from 'react';
-import Completed from './completed';
+import illustration from "../assets/images/illustration-sign-up-desktop.svg";
+import chech from "../assets/images/icon-list.svg";
+import { useForm, SubmitHandler, Controller } from "react-hook-form";
+import * as z from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { SetStateAction, useState } from "react";
+import Completed from "./completed";
+
+declare module "*.svg" {
+  const content: any;
+  export default content;
+}
 
 const list = [
-  { id: 1, text: 'Product discovery and building what matters' },
-  { id: 2, text: 'Measuring to ensure updates are a success' },
-  { id: 3, text: 'And much more...' },
+  { id: 1, text: "Product discovery and building what matters" },
+  { id: 2, text: "Measuring to ensure updates are a success" },
+  { id: 3, text: "And much more..." },
 ];
 
 export default function NewsLetterSignUp() {
   const [isOpen, setIsOpen] = useState<SetStateAction<boolean>>(false);
 
   const validationSchema = z.object({
-    email: z.string().min(1, { message: 'Email required' }).email({
-      message: 'Valid email required',
+    email: z.string().min(1, { message: "Email required" }).email({
+      message: "Valid email required",
     }),
   });
 
@@ -28,7 +33,7 @@ export default function NewsLetterSignUp() {
   const form = useForm<z.infer<typeof validationSchema>>({
     resolver: zodResolver(validationSchema),
     defaultValues: {
-      email: '',
+      email: "",
     },
   });
 
@@ -44,7 +49,7 @@ export default function NewsLetterSignUp() {
   };
 
   if (isOpen) {
-    return <Completed email={getValues('email')} dismiss={setIsOpen} />;
+    return <Completed email={getValues("email")} dismiss={setIsOpen} />;
   }
 
   return (
@@ -68,7 +73,7 @@ export default function NewsLetterSignUp() {
           <form onSubmit={handleSubmit(onSubmit)}>
             <div>
               <label htmlFor="input">
-                Email address{' '}
+                Email address{" "}
                 {errors.email && (
                   <div className="error"> {errors.email?.message}</div>
                 )}
@@ -79,7 +84,7 @@ export default function NewsLetterSignUp() {
                 render={({ field }) => (
                   <input
                     {...field}
-                    className={errors.email && 'error-input'}
+                    className={errors.email && "error-input"}
                     placeholder="email@company.com"
                   />
                 )}
