@@ -8,11 +8,6 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { SetStateAction, useState } from "react";
 import Completed from "./completed";
 
-declare module "*.svg" {
-  const content: any;
-  export default content;
-}
-
 const list = [
   { id: 1, text: "Product discovery and building what matters" },
   { id: 2, text: "Measuring to ensure updates are a success" },
