@@ -1,0 +1,27 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+body {
+  margin: 0;
+  font-family: 'Roboto', system-ui, sans-serif;
+  color: white;
+  background-color: #36384d;
+  font-size: 16px;
+}
+
+.app {
+  height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
